@@ -1,7 +1,5 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -68,5 +66,27 @@ public class Main {
 //            System.out.println(queue.peek());
 //            queue.remove();
         }
+
+        // Sắp xêp cách phần tử trong danh sách theo thứ tự nào đó
+        // comparator/ comparable
+
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(4,"Chiến"));
+        students.add(new Student(1,"Hùng"));
+        students.add(new Student(3,"Minh"));
+        students.add(new Student(2,"Cao"));
+        System.out.println(students);
+
+        // sắp xếp
+        // sử dụng Comparable
+//        Collections.sort(students);
+
+        // sử dụng Comparator
+//        students.sort(new SortComparator());
+//        students.sort((o1,o2)->o2.name.compareTo(o1.name)); // biểu thức lamda
+        Collections.sort(students);
+       students.sort(Comparator.comparingInt(Student::getId));  // functionInterface
+        System.out.println(students);
+
     }
 }
